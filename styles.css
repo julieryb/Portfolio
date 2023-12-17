@@ -1,0 +1,646 @@
+body {
+    background-color: #F2F2EA;
+    font-family: "Nixie One", sans-serif;
+    font-weight: 400;
+    color: black;
+}
+
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+.burger{
+    margin-left: -12px;
+    height: 40px;
+}
+
+.align{
+    display: flex;
+    
+}
+
+
+
+
+
+:root{
+    --bar-width: 50px;
+    --bar-height: 3px;
+    --hamburger-gap: 10px;
+    --foreground: #948D82;
+    --background: #fff;
+    --hamburger-margin:20px;
+    --animation-timing: 200ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+.hamburger-menu{
+    --x-width: calc(var(--hamburger-height) * 1.41421356237);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    position: absolute;
+    top: 100px;
+    z-index: 2;
+    left: var(--hamburger-margin);
+    cursor: pointer;
+}
+.hamburger-menu:has(input:checked) {
+    --foreground: #fff;
+    --background: #333;
+}
+
+.hamburger-menu:has(input:focus-visible)::before,
+.hamburger-menu:has(input:focus-visible)::after,
+.hamburger-menu input:focus-visible {
+    border: 1px solid var(--background);
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input{
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--foreground);
+    border-radius: 9999px;
+    transform-origin: left center;
+    transition: opacity var(--animation-timing), width var(--animation-timing),
+    rotate var(--animation-timing), translate var(--animation-timing), bagground-color var(--animation-timing);
+}
+
+
+.hamburger-menu input{
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    pointer-events: none;
+}
+
+.hamburger-menu:has(input:checked)::before{
+    rotate: 45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / -2);
+}
+
+.hamburger-menu:has(input:checked)::after{
+    rotate: -45deg;
+    width: var(--x-width);
+    translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburger-menu input:checked {
+    opacity: 0;
+    width: 0;
+
+}
+
+.sidebar{
+    transition: translate var(--animation-timing);
+    translate: -100%;
+    padding: 0.5rem 1rem;
+    padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+    background-color: var(--foreground);
+    color: var(--background);
+    max-width: 25rem;
+    height: 100vh;
+    font-size: 3rem;
+    text-decoration: none;
+}
+
+.hamburger-menu:has(input:checked) + .sidebar {
+    translate: 0;
+}
+
+
+
+
+
+header {
+    background-color: #F2F2EA;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav{
+    margin-top: 100px;
+}
+
+nav div{
+    margin-top: 20px;
+}
+
+
+.logo{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    margin-left: 30%;
+    margin-bottom: 10%;
+
+}
+
+.search{
+    width: 100px;
+}
+
+.align i{
+    margin-left: auto;
+    margin-right: auto;
+    height: 67px;
+    margin-top: 50px;
+    color: #948D82;
+    margin-left: 70px;
+}
+
+.billedeafmig{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.notevelkommen{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.projekt{
+    background-image: url("Images/note-lang.png");
+   background-position: 50% 0%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-flow: column;
+}
+
+.projekt .titel{
+    text-align: center;
+    font-size: 3.5rem;
+    margin-top: 140px;
+}
+
+.projekt div{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0;
+}
+
+.projekt div .push{
+    
+}
+
+.projekt div .down{
+    margin-bottom: 236px;
+}
+
+.container-projekt{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+}
+
+.container-projekt h1{
+    font-size: 1.5rem;
+}
+
+.container-projekt p{
+    font-size: 1rem;
+}
+
+.hide{
+    display: none;
+}
+
+.projekt img{
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+
+
+
+h1{
+    font-size: 1rem;
+}
+
+p{
+    font-size: 1rem;
+}
+
+
+
+.container{
+    width: 100%;
+    margin-bottom:100px;
+    background-color: #F2F2EA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills h2{
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-top: 40px;
+    margin-bottom: 5px;
+    color: black;
+    font-size: 1.5rem;
+}
+
+.skills{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.progress-bar{
+    background-color: #D9D9D9;
+    width: 90%;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.progress-bar div{
+    height: 40px;
+    border-radius: 5px;
+    background-color: #DDB1A1;
+}
+
+.progress-bar div span{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background: #fff;
+    float: right;
+    margin-top: -15px;
+    margin-right: -20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.Illustrator{
+    animation: Illustrator 1s linear forwards;
+}
+
+.Photoshop{
+    animation: Photoshop 1s linear forwards;
+}
+
+.Indesign{
+    animation: Indesign 1s linear forwards;
+}
+
+.After-effects{
+    animation: After-effects 1s linear forwards;
+}
+.Figma{
+    animation: Figma 1s linear forwards;
+}
+
+.Premiere-Pro{
+    animation: Premiere-Pro 1s linear forwards;
+}
+
+
+
+@keyframes Illustrator {
+    0%{
+        width: 0%;
+    }
+
+    50%{
+        width: 50%;
+    }
+
+    100%{
+        width: 80%;
+    }
+}
+
+@keyframes Photoshop {
+    0%{
+        width: 0%;
+    }
+
+    50%{
+        width: 50%;
+    }
+
+    100%{
+        width: 75%;
+    }
+}
+
+@keyframes Indesign {
+     0%{
+         width: 0%;
+     }
+
+     50%{
+         width: 50%;
+     }
+
+    100%{
+        width: 70%;
+    }
+}
+@keyframes After-effects {
+     0%{                   
+         width: 0%;        
+     }                     
+                           
+     5%{
+         width: 5%;
+     }                     
+                           
+
+    100%{
+        width: 20%;
+    }
+}
+@keyframes Figma {
+    0%{
+        width: 0%;
+    }
+
+    50%{
+        width: 50%;
+    }
+
+    100%{
+        width: 95%;
+    }
+}
+@keyframes Premiere-Pro {
+      0%{
+          width: 0%;
+      }
+
+      10%{
+          width: 10%;
+      }                                       
+
+    100%{
+        width: 40%;
+    }
+}
+.figurecontainer{
+    display: flex;
+    justify-content: center;
+    margin-top: -180px;
+}
+.btn{
+    justify-items: center;
+    border-radius: 25px;
+    background-color: #BCCCB2;
+    width: 75%;
+    height: 40px;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    margin-top: 65%;
+}
+.test{
+    text-decoration: none;
+}
+
+footer{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+footer img{
+    width: 10%;
+
+}
+
+
+.splashgruppe{
+    width: 70%;
+
+}
+
+footer h2{
+    font-size: 2rem;
+}
+
+footer p{
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+footer h4{
+    font-size: 1rem;
+}
+
+.cp{
+  font-size: 1rem;
+}
+
+.kreativ{
+    font-size: 2.5rem;
+    ;
+}
+
+.kreativpalette{
+    margin-top: 20%;
+}
+
+
+.splash1{
+    position: relative;
+    width: 90%;
+    align-items: center;
+    margin-left: 5%;
+
+}
+.grafiskdesign{
+    position: absolute;
+    margin-top: 32%;
+    z-index: 1;
+    width: 50%;
+    font-size: 3rem;
+    font-family: Pompiere;
+    text-align: center;
+
+}
+
+.grafiskdesign-div{
+    display: flex;
+    justify-content: center;
+}
+
+
+.splash2{
+    position: relative;
+    width: 90%;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.content{
+    position: absolute;
+    margin-top: 32%;
+    z-index: 1;
+    text-align: center;
+    font-size: 3rem;
+    font-family: Pompiere;
+    width: 40%;
+}
+
+.content-div{
+    display: flex;
+    justify-content: center;
+}
+
+.splash3{
+    position: relative;
+    width: 90%;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.webdesign{
+    position: absolute;
+    margin-top: 35%;
+    z-index: 1;
+    text-align: center;
+    font-size: 3rem;
+    font-family: Pompiere;
+    width: 50%;
+
+}
+
+.webdesign-div{
+    display: flex;
+    justify-content: center;
+}
+
+
+.splash4{
+    position: relative;
+    width: 90%;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.minek{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.pc{
+    display: none;
+}
+
+.mobile{
+    display: flex;
+    flex-direction: column;
+}
+
+kompetencer-mobile{
+    display: flex;
+}
+
+kompetencer-pc{
+    display: none;
+}
+
+
+@media only screen and (min-width: 700px) {
+    /* dine regler her */
+
+    .pc{
+        display: flex;
+    }
+
+    .mobile{
+        display: none;
+    }
+
+    .kompentencer-mobile{
+        display: none;
+    }
+
+    .kompetencer-pc{
+        display: flex;
+        flex-direction: row;
+        rows:2;
+    }
+
+    .btn{
+        margin-top: 6rem;
+    }
+
+    .start{
+        background-image: url("Images/Opslagstavle.png");
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .notevelkommen-div{
+        width: 40%;
+    }
+
+    .billedeafmig-div{
+        width: 40%;
+    }
+
+    .projekt-kompetencer{
+        background-image: none;
+        justify-content: space-evenly;
+        flex-direction: row;
+    }
+
+    .container-projekt{
+        height: 100%;
+    }
+
+    kompetencer-mobile{
+        display: none;
+    }
+
+   .projekt-kompetencer div{
+       width: 20%;
+
+   }
+
+   .kreativpalette{
+       flex-direction: column;
+
+   }
+
+   .skills{
+       margin-right: auto;
+       margin-left: auto;
+       max-width: 800px;
+   }
+
+}
+
+
+
+
+
